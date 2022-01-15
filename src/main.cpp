@@ -194,7 +194,8 @@ int main(int argc, char** argv)
     nvim.on_exit([&] {
       QMetaObject::invokeMethod(&w, &QMainWindow::close, Qt::QueuedConnection);
     });
-    return app.exec();
+    app.exec();
+    return nvim.exit_code();
   }
   catch (const std::exception& e)
   {
